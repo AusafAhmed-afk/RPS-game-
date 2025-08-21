@@ -1,0 +1,57 @@
+<RPSGame>:
+    orientation: 'vertical'
+    spacing: 25
+    padding: 40
+    canvas.before:
+        Color:
+            rgba: (0.05, 0.05, 0.1, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: "🎮 Choose Your Move"
+        font_size: '26sp'
+        color: 1, 1, 1, 1
+        bold: True
+
+    BoxLayout:
+        spacing: 20
+        Button:
+            text: "🪨 Rock"
+            font_size: '22sp'
+            on_press: root.play('R')
+        Button:
+            text: "📄 Paper"
+            font_size: '22sp'
+            on_press: root.play('P')
+        Button:
+            text: "✂️ Scissors"
+            font_size: '22sp'
+            on_press: root.play('S')
+
+    Label:
+        text: "👤 You chose: [b]"+root.player_choice+"[/b]\n🤖 Computer chose: [b]"+root.computer_choice+"[/b]"
+        markup: True
+        font_size: '20sp'
+        color: 1, 1, 1, 1
+
+    Label:
+        text: "[b][color=FFD700]"+root.result+"[/color][/b]"
+        markup: True
+        font_size: '24sp'
+        halign: 'center'
+        color: 1, 1, 1, 1
+
+    Label:
+        text: "📊 Scoreboard\n👤 You: "+str(root.score_player)+"   🤖 Computer: "+str(root.score_computer)
+        font_size: '20sp'
+        color: 1, 1, 1, 1
+
+    Button:
+        text: "🔁 Reset Game"
+        size_hint_y: None
+        height: '50dp'
+        on_press: root.reset_game()
+        background_color: (0.2, 0.6, 0.8, 1)
+        font_size: '18sp'
